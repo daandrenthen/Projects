@@ -9,16 +9,12 @@ use App\Models\User;
 
 class LoginController extends Controller
 {
-    /**
-     * Show the login form.
-     *
-     * @return \Illuminate\Contracts\View\View
-     */
+   
     public function showLoginForm(Request $request)
     {
-        // Controleer of de gebruiker is ingelogd
+        
         if (Auth::check()) {
-            Auth::logout(); // Uitloggen van de gebruiker
+            Auth::logout();
         }
 
         return view('login');
