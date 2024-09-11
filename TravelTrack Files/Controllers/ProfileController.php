@@ -21,13 +21,12 @@ class ProfileController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
-            // Voeg hier andere velden toe indien nodig
+           
         ]);
 
         // Updaten van gebruiker
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        // Voeg hier andere velden toe indien nodig
         $user->save();
 
         return redirect()->back()->with('success', 'Profiel bijgewerkt.');
